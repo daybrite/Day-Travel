@@ -1,0 +1,25 @@
+# The Day project manifest: https://daybrite.dev/docs/cli#the-conventional-project
+# `name` and `version` come from Cargo.toml.
+schema = 1
+
+[app]
+id = "dev.daybrite.travel"
+title = "Day Travel"
+build = 1
+targets = ["macos-appkit", "macos-gtk", "macos-qt", "ios-uikit", "android-material", "linux-gtk", "linux-qt", "windows-winui", "windows-xaml", "harmony-arkui", "web-dom"]
+
+# The window's size and minimum size in points, for every platform with resizable windows.
+[window]
+width = 1040
+height = 860
+min_width = 320
+min_height = 400
+
+# Report which element ids the dayscripts reach: https://daybrite.dev/docs/dayscript
+[dayscript.coverage]
+enabled = true
+
+# Desktop captures contain the whole screen. Mobile uses two native viewport captures.
+[screenshots]
+desktop-size = "2400x2000"
+desktop-scale = 2

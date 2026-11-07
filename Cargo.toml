@@ -1,0 +1,28 @@
+[package]
+name = "day-travel"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "dayapp"
+
+[features]
+default = ["mock"]
+mock = ["day/mock"]
+appkit = ["day/appkit"]
+uikit = ["day/uikit"]
+material = ["day/material"]
+gtk = ["day/gtk"]
+qt = ["day/qt"]
+winui = ["day/winui"]
+xaml = ["day/xaml"]
+arkui = ["day/arkui"]
+dom = ["day/dom"]
+
+[dependencies]
+day = { package = "day-app", version = "0.*" }
+
+[build-dependencies]
+day-build = "0.*"
+
+[workspace]

@@ -1,0 +1,62 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+    tags: ["v[0-9]+.[0-9]+.[0-9]+*"]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "45 6 * * *" # Exercise changes on Day main even when this app has not changed.
+
+permissions:
+  contents: read
+
+jobs:
+  capture-setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m unittest discover -s scripts/ci -p 'test_*.py'
+  app:
+    needs: capture-setup
+    uses: daybrite/actions/.github/workflows/dayapp.yml@v1
+    permissions:
+      contents: write # Standard release artifacts on version tags.
+      pages: write
+      id-token: write
+    with:
+      # The shared workflow does not accept the legacy windows-xaml target. Keep it
+      # in Day.toml for local comparisons; CI covers every supported target below.
+      targets: macos-appkit, macos-gtk, macos-qt, ios-uikit, android-material, linux-gtk, linux-qt, windows-winui, harmony-arkui, web-dom
+      # Resolve main once per run. Every build and its CLI use that same Day commit,
+      # including scheduled runs (the shared workflow's auto mode would use releases).
+      day-deps: main
+      preflight-checks: fmt clippy test
+      # demo.yaml changes the selected language. Capture walkthroughs deliberately
+      # preserve the launch locale and start with fresh state for every appearance.
+      scripts: dayscript/capture-desktop.yaml
+      target-scripts: |
+        ios-uikit, android-material, harmony-arkui: dayscript/capture-mobile.yaml
+      locales: all
+      themes: light dark
+      ios-devices: |
+        device=iPhone, orientation=portrait, slug=phone
+      android-devices: |
+        device=pixel, os=36, orientation=portrait, slug=phone
+      harmony-devices: |
+        device=phone, orientation=portrait, slug=phone
+      target-packages: |
+        harmony-arkui: fonts-noto-cjk
+      # Keep all normal lint checks. Only store privacy-URL requirements are waived
+      # for this sample, which has no store submission or store-upload configuration.
+      lint: false
+      target-setup: |
+        macos-appkit, macos-gtk, macos-qt, ios-uikit, android-material, linux-gtk, linux-qt, windows-winui, harmony-arkui, web-dom: "$DAY_BIN" lint --allow store-missing-field
+      script-setup: source scripts/ci/setup-captures.sh
+      app-id: dev.daybrite.travel
+      deploy-web: true
+      # A main-only sample site, with the current run's screenshots and browser app.
+      tab-release: false
+      tab-pre-release: false
+      tab-main: true

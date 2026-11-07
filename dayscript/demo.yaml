@@ -1,0 +1,17 @@
+# Initial AppKit review. Locale assertions use the same Fluent messages as the UI.
+flow:
+  - wait_for: { id: trip_title }
+  - assert_text: { id: trip_title, key: trip_title }
+  - assert_text: { id: traveler_count, key: travelers, args: { count: 2 } }
+  - screenshot: travel-desktop
+  - tap: { id: add_traveler }
+  - assert_text: { id: traveler_count, key: travelers, args: { count: 3 } }
+  - tap: { id: remove_traveler }
+  - toggle: { id: jacket, value: true }
+  - assert_value: { id: jacket, value: true }
+  - toggle: { id: jacket, value: false }
+
+  - select: { id: language_picker, index: 1 }
+  - assert_text: { id: trip_title, key: trip_title }
+  - select: { id: language_picker, index: 0 }
+  - assert_text: { id: trip_title, key: trip_title }

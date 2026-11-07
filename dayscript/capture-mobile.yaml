@@ -1,0 +1,11 @@
+# Capture native viewports, preserving the same state in the paired images.
+flow:
+  - wait_for: { id: trip_title }
+  - assert_text: { id: trip_title, key: trip_title }
+  - assert_text: { id: traveler_count, key: travelers, args: { count: 2 } }
+  - scroll_to: { id: travel_screen, edge: top }
+  - wait_idle: {}
+  - screenshot: top
+  - scroll_to: { id: travel_screen, edge: bottom }
+  - wait_idle: {}
+  - screenshot: bottom

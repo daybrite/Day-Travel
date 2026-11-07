@@ -6,13 +6,15 @@ The app supports English, French, Arabic, German, Japanese, Simplified Chinese, 
 
 ## Run locally
 
-Keep this project beside the `day/` framework checkout. It currently uses local Cargo path dependencies; no repository or package has been published.
+Install a Day CLI from `main`, then patch this app's dependencies to the same branch:
 
 ```sh
-../day/target/debug/day launch -t macos-appkit --detach --locale en
+cargo install --git https://github.com/daybrite/day --branch main day-cli --locked
+day patch --main --check
+day launch -t macos-appkit --detach --locale en
 ```
 
-Use the matching CLI from the framework checkout. An older globally installed CLI may have different target names.
+The manifest uses published Day version requirements. `day patch` writes an ignored `.cargo/config.toml` that selects current development commits. For framework development, use `day patch --local ../day --check` and the CLI from that checkout instead.
 
 The language menu updates translations and formatting immediately. Layout direction is fixed at launch: launch with `--locale ar` to see the mirrored Arabic interface. A localized note explains when a language change needs a restart. The sun/moon button switches appearance where the toolkit supports changing it at runtime. `--themes light,dark` launches each appearance independently for screenshots.
 
@@ -52,7 +54,7 @@ python3 scripts/build_review.py --output "$HOME/Desktop/Day-Travel-Review"
 open -a Safari "$HOME/Desktop/Day-Travel-Review/index.html"
 ```
 
-The gallery works offline and filters by platform, language, and appearance. Mobile captures appear in pairs. Approvals and notes persist in the browser; **Export decisions** saves a portable JSON file. An exported file can be supplied for a later editing session. The page does not upload decisions or publish screenshots.
+The gallery works offline. Hover over or tap the dashes to select appearance above the image, platform on the right, and language below. Each selection preserves the other two; arrow keys also move between choices. Mobile captures appear in pairs. Expand **Review and export decisions** to approve the selected capture or add notes. Approvals and notes persist in the browser; **Export decisions** saves a portable JSON file. An exported file can be supplied for a later editing session. The page does not upload decisions or publish screenshots.
 
 `manifest.json` records dimensions, screenshot checksums, and app source hashes. Capture logs and `validation.json` accompany this review build. Refreshing the gallery preserves notes; changed screenshot checksums clear only the affected approval. Missing captures remain visible and cannot be approved. The builder rejects invalid or tiny PNGs and identical top/bottom pairs. It does not substitute an image from another target. Optional `build/capture-issues.json` maps target identifiers to diagnostic notes.
 
@@ -62,10 +64,10 @@ Review UI strings live in `scripts/review/strings.en.json`; the builder and gene
 
 ```sh
 cargo fmt --all -- --check
-cargo test --offline
-cargo clippy --offline --all-targets -- -D warnings
-../day/target/debug/day lint --allow store-missing-field
-../day/target/debug/day launch -t macos-appkit --locale en --script dayscript/demo.yaml
+cargo test
+cargo clippy --all-targets -- -D warnings
+day lint --allow store-missing-field
+day launch -t macos-appkit --locale en --script dayscript/demo.yaml
 ```
 
 The store-field waiver covers missing privacy-policy URLs for this unpublished sample. `demo.yaml` exercises traveler counts, packing switches, and language selection; capture scripts preserve the selected locale instead.
@@ -76,4 +78,18 @@ The store-field waiver covers missing privacy-policy URLs for this unpublished s
 - `dayscript/`: interaction checks and capture walkthroughs.
 - `scripts/`: capture wrapper and portable review gallery.
 
-This project and its screenshots remain local until reviewed. The website does not yet consume them.
+## CI and project website
+
+`.github/workflows/ci.yml` uses the standard `daybrite/actions` app workflow. It runs on pushes to `main`, pull requests, version tags, manual dispatch, and nightly at 06:45 UTC. `day-deps: main` resolves Day's main branch once per run; every target uses that commit for both its dependencies and CLI.
+
+CI captures seven locales in light and dark mode on ten targets. The shared workflow does not support legacy `windows-xaml`; it remains available locally. iOS, Android, and HarmonyOS each use one portrait phone and capture both scroll positions. The other targets capture one window: 182 PNGs in total. Capture failures block publication.
+
+The main-branch workflow publishes the [project website](https://daybrite.github.io/Day-Travel/), including its screenshot gallery and browser app. GitHub Pages is already configured to deploy through Actions. `website/site.toml` configures the standard daysite template; site copy comes from `store/storefront.toml`. Pull requests validate the app without publishing the website. Generated screenshots and site files stay out of Git.
+
+Font setup uses the shared workflow's existing hooks:
+
+- Linux and browser runners already receive `fonts-noto-cjk` from the shared setup.
+- `scripts/ci/setup-captures.sh` selects Fontconfig for macOS GTK so Japanese fallback works.
+- HarmonyOS installs the host Noto CJK package, copies its fallback font into the disposable CI emulator, and reboots before capturing. The helper requires a loopback device and emulator images under `RUNNER_TEMP`; it refuses ordinary local devices.
+
+The workflow runs normal lint checks with only the sample's missing store privacy-policy URLs waived. It does not submit to app stores. Publishing this project site does not add the screenshots to the separate daybrite.dev landing page; that integration is still to come.

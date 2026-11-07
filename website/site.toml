@@ -1,0 +1,12 @@
+# The shared dayapp workflow builds this project site using daybrite/daysite.
+# Pages must use GitHub Actions as its source (already enabled for this repository).
+# App copy comes from store/storefront.toml; screenshots come from this CI run.
+host = "https://daybrite.github.io/Day-Travel"
+locales = ["en", "fr", "ar", "de", "ja", "zh-CN", "ko"]
+accent-color = "#176c65"
+default-theme = "system"
+default-platform = "web"
+webapp = "webapp"
+show-gallery = true
+show-source-link = true
+show-store-badges = false

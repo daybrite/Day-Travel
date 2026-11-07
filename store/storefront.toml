@@ -1,0 +1,36 @@
+# Descriptive metadata for local builds. This demo is not submitted to a store.
+[storefront.metadata]
+name = "Day Travel"
+subtitle = "A localization demo"
+short = "A travel screen in seven languages."
+description = "A native Day demo of translated text, dates, numbers, and right-to-left layout."
+[storefront.metadata.fr]
+name = "Day Travel"
+subtitle = "Une démo de localisation"
+short = "Un écran de voyage en sept langues."
+description = "Une démo native de Day : textes traduits, dates, nombres et disposition de droite à gauche."
+[storefront.metadata.ar]
+name = "Day Travel"
+subtitle = "عرض توضيحي للتوطين"
+short = "شاشة سفر بسبع لغات."
+description = "عرض أصلي باستخدام Day للنصوص المترجمة والتواريخ والأرقام والتخطيط من اليمين إلى اليسار."
+
+[storefront.metadata.de]
+name = "Day Travel"
+short = "Eine Reiseansicht in sieben Sprachen."
+description = "Eine Reiseansicht in sieben Sprachen."
+
+[storefront.metadata.ja]
+name = "Day Travel"
+short = "7つの言語に対応した旅行画面。"
+description = "7つの言語に対応した旅行画面。"
+
+[storefront.metadata.zh-CN]
+name = "Day Travel"
+short = "支持七种语言的旅行界面。"
+description = "支持七种语言的旅行界面。"
+
+[storefront.metadata.ko]
+name = "Day Travel"
+short = "7개 언어로 보는 여행 화면."
+description = "7개 언어로 보는 여행 화면."

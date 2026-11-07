@@ -1,0 +1,8 @@
+# A fresh process per locale/theme. Never change language in this walkthrough.
+flow:
+  - wait_for: { id: trip_title }
+  - assert_text: { id: trip_title, key: trip_title }
+  - assert_text: { id: traveler_count, key: travelers, args: { count: 2 } }
+  - scroll_to: { id: travel_screen, edge: top }
+  - wait_idle: {}
+  - screenshot: overview
