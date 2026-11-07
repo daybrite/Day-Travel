@@ -5,7 +5,7 @@ schema = 1
 [app]
 id = "dev.daybrite.travel"
 title = "Day Travel"
-build = 1
+build = 3
 targets = ["macos-appkit", "macos-gtk", "macos-qt", "ios-uikit", "android-material", "linux-gtk", "linux-qt", "windows-winui", "windows-xaml", "harmony-arkui", "web-dom"]
 
 # The window's size and minimum size in points, for every platform with resizable windows.
