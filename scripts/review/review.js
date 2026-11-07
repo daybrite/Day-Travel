@@ -1,6 +1,26 @@
 // UI copy is generated from strings.en.json. Capture titles are publication metadata.
 const res = {str: Object.fromEntries(Object.entries(DATA.strings).map(([k, v]) =>
   [k, (args = {}) => v.replace(/\{(\w+)\}/g, (_, n) => String(args[n] ?? ''))]))};
+// Generated vector accessors match the string accessors; trusted bundled SVGs only.
+res.vectors = Object.fromEntries(Object.entries(DATA.vectors).map(([name, markup]) => [name, () => {
+  const template = document.createElement('template');
+  template.innerHTML = markup;
+  const icon = template.content.firstElementChild;
+  icon.classList.add('control-icon');
+  icon.setAttribute('aria-hidden', 'true');
+  icon.setAttribute('focusable', 'false');
+  return icon;
+}]));
+const platformIcons = {
+  'macos-appkit': res.vectors.macos_appkit,
+  'ios-uikit': res.vectors.ios_uikit,
+  'android-material': res.vectors.android_material,
+  'linux-gtk': res.vectors.linux_gtk,
+  'linux-qt': res.vectors.linux_qt,
+  'windows-winui': res.vectors.windows_winui,
+  'harmony-arkui': res.vectors.harmony_arkui,
+  'web-dom': res.vectors.web_dom,
+};
 const q = id => document.getElementById(id);
 function el(tag, cls, text) {
   const node = document.createElement(tag);
@@ -44,6 +64,7 @@ try {
   const saved = JSON.parse(localStorage.getItem(key + ':selection') || '{}');
   for (const axis of axes) if (axis.options.some(([v]) => v === saved[axis.field])) selection[axis.field] = saved[axis.field];
 } catch { /* Selection persistence is optional; the preview still works without storage. */ }
+let hoverTimer;
 for (const axis of axes) {
   const group = q(axis.id);
   for (const [value, label] of axis.options) {
@@ -54,15 +75,31 @@ for (const axis of axes) {
     button.setAttribute('aria-controls', 'stage');
     const bar = el('span', 'bar'), tip = el('span', 'tip', label);
     bar.setAttribute('aria-hidden', 'true'); tip.setAttribute('aria-hidden', 'true');
-    button.append(bar, tip);
+    if (axis.field === 'theme') {
+      button.append(value === 'light' ? res.vectors.sun() : res.vectors.moon(), bar);
+    } else if (axis.field === 'target') {
+      button.dataset.pf = value;
+      button.append(bar, platformIcons[value]());
+    } else {
+      const name = el('span', 'locale-name', label);
+      name.lang = value;
+      name.dir = 'auto';
+      name.setAttribute('aria-hidden', 'true');
+      button.append(bar, name);
+    }
+    if (axis.field !== 'locale') button.append(tip);
     const select = () => {
+      clearTimeout(hoverTimer);
       if (selection[axis.field] === value) return;
       selection[axis.field] = value;
       try { localStorage.setItem(key + ':selection', JSON.stringify(selection)); } catch { /* optional */ }
       render();
     };
     // Touch pointerenter is not a hover: tapping still uses the normal click handler.
-    button.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') select(); });
+    button.addEventListener('pointerenter', event => {
+      if (event.pointerType === 'mouse') hoverTimer = setTimeout(select, 90);
+    });
+    button.addEventListener('pointerleave', () => clearTimeout(hoverTimer));
     button.addEventListener('click', select);
     button.addEventListener('focus', select);
     group.append(button);
@@ -89,6 +126,7 @@ async function render() {
   const pending = [];
   for (const shot of c.images) {
     const figure = el('figure'), link = el('a'), img = el('img');
+    figure.style.setProperty('--shot-ratio', shot.width / shot.height);
     link.href = shot.path; link.target = '_blank'; link.rel = 'noopener';
     img.alt = [c.platform, c.language, res.str[c.theme](), res.str[shot.position]()].join(' · ');
     img.width = shot.width; img.height = shot.height; img.src = shot.path;
@@ -103,15 +141,22 @@ async function render() {
   if (!loaded) slide.replaceChildren(el('p', 'missing', res.str.load_error()));
   else if (!c.complete) slide.append(el('p', 'missing', res.str.missing() + (c.issue ? ' — ' + c.issue : '')));
   const old = [...q('stage').children];
-  // Old slides remain visible through the fade, but cannot receive clicks or focus.
+  // Each slide includes its opaque themed background. Fade the new composition
+  // OVER the old one; fading both out/in exposes the stage and causes a flash.
+  // Let interrupted fades finish underneath the next one, preserving their visible
+  // composite. Remove old layers only when an opaque replacement has finished.
   for (const node of old) { node.inert = true; node.setAttribute('aria-hidden', 'true'); }
+  slide.dataset.theme = c.theme;
+  slide.classList.add('is-visible');
   q('stage').append(slide);
   q('stage').dataset.theme = c.theme;
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    slide.classList.add('is-visible');
-    for (const node of old) node.classList.remove('is-visible');
-    setTimeout(() => old.forEach(node => node.remove()), 240);
-  }));
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (old.length && !reducedMotion) {
+    const fade = slide.animate([{opacity: 0}, {opacity: 1}], {
+      duration: 480, easing: 'cubic-bezier(.4, 0, .2, 1)',
+    });
+    fade.finished.then(() => old.forEach(node => node.remove()));
+  } else old.forEach(node => node.remove());
   q('stage').setAttribute('aria-busy', 'false');
   q('current-platform').textContent = c.platform;
   q('current-detail').textContent = c.language + ' · ' + res.str[c.theme]();

@@ -16,5 +16,5 @@ if ($SmallBuild) {
     $env:CARGO_INCREMENTAL = '0'
 }
 & $Cli launch -t $Target --script dayscript/capture-desktop.yaml `
-    --locales 'en,fr,ar,de,ja,zh-CN,ko' --themes 'light,dark'
+    --locales 'en,fr,de,ja,zh-CN,ko,ar' --themes 'light,dark'
 exit $LASTEXITCODE

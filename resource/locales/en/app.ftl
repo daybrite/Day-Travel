@@ -1,3 +1,4 @@
+# US English; distances and temperatures are converted by the app.
 # App-owned text. EUR stays EUR: language switching never converts the trip budget.
 app_title = Day Travel
 app_subtitle = A little time away
@@ -19,8 +20,8 @@ cafe_title = Coffee & warm pastizzi
 cafe_detail = A flaky pastry and a quiet table in the old town.
 sunset_title = An evening at Upper Barrakka
 sunset_detail = Watch the boats from the gardens, then head out for dinner.
-walking_distance = { NUMBER($km, maximumFractionDigits: 1) } km on foot
-weather = { NUMBER($degrees) } °C · Clear skies
+walking_distance = { NUMBER($distance, maximumFractionDigits: 1) } mi on foot
+weather = { NUMBER($degrees, maximumFractionDigits: 0) } °F · Clear skies
 budget = The trip budget
 money = €{ NUMBER($amount, minimumFractionDigits: 2, maximumFractionDigits: 2) }
 budget_caption = For the whole trip, in euros

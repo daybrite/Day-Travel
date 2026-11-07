@@ -112,6 +112,11 @@ fn harbour_art(compact: bool) -> impl Piece {
 /// Keep the same state while resizing or changing language. All app text and illustrations
 /// use generated resource accessors. Locale tags and fixed ISO dates are data, not UI strings.
 pub fn root() -> impl Piece {
+    // The sample offers US English. Keep the base `en` catalog as the fallback,
+    // while giving number/date formatting and the picker an explicit regional tag.
+    if day::locale().get().starts_with("en") {
+        day::locale().set("en-US".to_owned());
+    }
     let travelers = Signal::new(2i64);
     let launched_rtl = is_rtl();
     let passport = Signal::new(true);
@@ -142,13 +147,13 @@ pub fn root() -> impl Piece {
                         picker(
                             day::locale(),
                             [
-                                ("en".to_owned(), res::str::lang_en()),
+                                ("en-US".to_owned(), res::str::lang_en()),
                                 ("fr".to_owned(), res::str::lang_fr()),
-                                ("ar".to_owned(), res::str::lang_ar()),
                                 ("de".to_owned(), res::str::lang_de()),
                                 ("ja".to_owned(), res::str::lang_ja()),
                                 ("zh-CN".to_owned(), res::str::lang_zh()),
                                 ("ko".to_owned(), res::str::lang_ko()),
+                                ("ar".to_owned(), res::str::lang_ar()),
                             ],
                         )
                         .menu()
@@ -250,11 +255,21 @@ pub fn root() -> impl Piece {
                         res::str::sunset_detail(),
                     ),
                     row((
-                        label(res::str::walking_distance(6.4))
-                            .font(Font::Callout)
-                            .color(teal),
+                        label(|| {
+                            let us = day::locale().get().starts_with("en");
+                            res::str::walking_distance(display_distance(6.4, us)).format()
+                        })
+                        .id(day::id!(walking_distance))
+                        .font(Font::Callout)
+                        .color(teal),
                         spacer(),
-                        label(res::str::weather(24)).font(Font::Callout).color(teal),
+                        label(|| {
+                            let us = day::locale().get().starts_with("en");
+                            res::str::weather(display_temperature(24.0, us)).format()
+                        })
+                        .id(day::id!(weather))
+                        .font(Font::Callout)
+                        .color(teal),
                     ))
                     .fit(RowFit::Wrap { run_spacing: 8.0 })
                     .spacing(Space::M)
@@ -421,4 +436,35 @@ fn itinerary_item<A, B, C>(
     ))
     .spacing(Space::M)
     .align(VAlign::Top)
+}
+
+// Store trip data in metric units; convert only for the sample's US English view.
+fn display_distance(kilometers: f64, us: bool) -> f64 {
+    if us {
+        kilometers / 1.609_344
+    } else {
+        kilometers
+    }
+}
+
+fn display_temperature(celsius: f64, us: bool) -> f64 {
+    if us {
+        celsius * 9.0 / 5.0 + 32.0
+    } else {
+        celsius
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn us_units_convert_the_same_trip_data() {
+        assert!((display_distance(6.4, true) - 3.976_775_630).abs() < 0.000_001);
+        assert!((display_temperature(24.0, true) - 75.2).abs() < 0.000_001);
+        assert_eq!(display_temperature(0.0, true), 32.0);
+        assert_eq!(display_distance(6.4, false), 6.4);
+        assert_eq!(display_temperature(24.0, false), 24.0);
+    }
 }

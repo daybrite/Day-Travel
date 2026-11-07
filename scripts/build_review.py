@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import html
 import json
+import re
 from pathlib import Path
 import shutil
 import struct
@@ -11,20 +12,17 @@ from datetime import datetime, timezone
 
 APP = Path(__file__).resolve().parents[1]
 TARGETS = [
-    ('macos-appkit', 'macOS · AppKit', False),
-    ('macos-gtk', 'macOS · GTK', False),
-    ('macos-qt', 'macOS · Qt', False),
     ('ios-uikit', 'iOS · UIKit', True),
     ('android-material', 'Android · Material', True),
+    ('harmony-arkui', 'HarmonyOS · ArkUI', True),
+    ('macos-appkit', 'macOS · AppKit', False),
+    ('windows-winui', 'Windows · WinUI', False),
     ('linux-gtk', 'Linux · GTK', False),
     ('linux-qt', 'Linux · Qt', False),
-    ('windows-winui', 'Windows · WinUI', False),
-    ('windows-xaml', 'Windows · XAML (legacy)', False),
-    ('harmony-arkui', 'HarmonyOS · ArkUI', True),
     ('web-dom', 'Web · DOM', False),
 ]
-LOCALES = [('en', 'English'), ('fr', 'Français'), ('ar', 'العربية'),
-           ('de', 'Deutsch'), ('ja', '日本語'), ('zh-CN', '简体中文'), ('ko', '한국어')]
+LOCALES = [('en', 'English'), ('fr', 'Français'), ('de', 'Deutsch'),
+           ('ja', '日本語'), ('zh-CN', '简体中文'), ('ko', '한국어'), ('ar', 'العربية')]
 
 
 def digest(path):
@@ -79,9 +77,23 @@ def build(output):
                 same_images = item['images'] and item['images'] == prior.get('images')
                 item['sourceHash'] = prior.get('sourceHash', previous.get('sourceHash', source_hash)) if same_images else source_hash
                 captures.append(item)
+    # Vendored website marks keep this offline builder independent of a day checkout.
+    # Mirror PlatformIcon.astro: preserve viewBox and geometry, omit duplicate titles.
+    vectors = {}
+    for path in sorted((resources / 'icons').glob('*.svg')):
+        raw = path.read_text()
+        viewbox = re.search(r'viewBox="([^"]+)"', raw).group(1)
+        inner = re.sub(r'^[\s\S]*?<svg[^>]*>', '', raw)
+        inner = re.sub(r'</svg>\s*$', '', inner)
+        inner = re.sub(r'<title>[\s\S]*?</title>|<!--[\s\S]*?-->', '', inner).strip()
+        # Theme drawings carry stroke attributes on their root; preserve these too.
+        if path.stem in ('sun', 'moon'):
+            vectors[path.stem.replace('-', '_')] = raw
+        else:
+            vectors[path.stem.replace('-', '_')] = f'<svg viewBox="{viewbox}" fill="currentColor">{inner}</svg>'
     data = dict(schema=1, sourceHash=source_hash, sourceFiles=hashes,
                 createdAt=datetime.now(timezone.utc).isoformat(), actual=actual,
-                expected=expected, strings=strings, captures=captures)
+                expected=expected, strings=strings, vectors=vectors, captures=captures)
     data['sourceSnapshots'] = previous.get('sourceSnapshots', {})
     if previous.get('sourceHash') and previous.get('sourceFiles'):
         data['sourceSnapshots'][previous['sourceHash']] = previous['sourceFiles']
@@ -97,6 +109,7 @@ def build(output):
     if logs.exists():
         shutil.copytree(logs, output / 'capture-logs', dirs_exist_ok=True)
     (output / 'manifest.json').write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
+    shutil.copy2(resources / 'icons/SOURCES.md', output / 'icon-sources.md')
     esc = html.escape
     def text(key):
         return esc(strings[key])
@@ -115,7 +128,7 @@ def build(output):
 <div class="caption" aria-live="polite" aria-atomic="true"><h2 id="current-platform"></h2><p id="current-detail"></p></div>
 <details class="review-panel"><summary>{text('review_controls')}</summary><div id="review"></div>
 <div class="actions"><button id="export">{text('export')}</button><span id="summary"></span></div><p id="storage"></p></details>
-</main><footer><p>{text('footer')}</p><a href="manifest.json">{text('manifest')}</a></footer>
+</main><footer><p>{text('footer')}</p><a href="manifest.json">{text('manifest')}</a> · <a href="icon-sources.md">{text('icon_sources')}</a></footer>
 <script>const DATA={embedded};\n{(resources / 'review.js').read_text()}</script></html>'''
     (output / 'index.html').write_text(page)
     print(f'{actual}/{expected} screenshots; {len(captures)} capture sets: {output / "index.html"}')

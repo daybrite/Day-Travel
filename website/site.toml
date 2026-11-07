@@ -2,7 +2,7 @@
 # Pages must use GitHub Actions as its source (already enabled for this repository).
 # App copy comes from store/storefront.toml; screenshots come from this CI run.
 host = "https://daybrite.github.io/Day-Travel"
-locales = ["en", "fr", "ar", "de", "ja", "zh-CN", "ko"]
+locales = ["en", "fr", "de", "ja", "zh-CN", "ko", "ar"]
 accent-color = "#176c65"
 default-theme = "system"
 default-platform = "web"

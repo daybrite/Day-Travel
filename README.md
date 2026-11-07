@@ -2,7 +2,7 @@
 
 A small native Day app for demonstrating localization on daybrite.dev. Its fictional weekend in Valletta, Malta includes translated text, locale-aware dates and numbers, plural forms, right-to-left layout, and light and dark appearances. The harbour illustrations are original SVGs. Windows uses 2× PNGs generated from those SVGs: its current gradient fallback pads illustrations to a square. Run `scripts/render_windows_art.sh` after editing the artwork (requires `resvg`). Other targets keep the vectors.
 
-The app supports English, French, Arabic, German, Japanese, Simplified Chinese, and Korean. All platforms use the same trip data. Translations are draft demo content for review before publication.
+The app supports US English, French, German, Japanese, Simplified Chinese, Korean, and Arabic. All platforms use the same trip data. Translations are draft demo content for review before publication.
 
 ## Run locally
 
@@ -18,7 +18,7 @@ The manifest uses published Day version requirements. `day patch` writes an igno
 
 The language menu updates translations and formatting immediately. Layout direction is fixed at launch: launch with `--locale ar` to see the mirrored Arabic interface. A localized note explains when a language change needs a restart. The sun/moon button switches appearance where the toolkit supports changing it at runtime. `--themes light,dark` launches each appearance independently for screenshots.
 
-The screen stacks its columns on narrow windows. Traveler buttons update plural forms and the per-person budget; packing switches update the packed count. The trip budget remains EUR 1,284.50 in every locale. Fluent `NUMBER` formats numbers and `DATETIME` formats fixed civil dates and times; this demo does not convert currencies or time zones.
+The screen stacks its columns on narrow windows. Traveler buttons update plural forms and the per-person budget; packing switches update the packed count. The trip budget remains EUR 1,284.50 in every locale. Fluent `NUMBER` formats numbers and `DATETIME` formats fixed civil dates and times; this demo does not convert currencies or time zones. English uses `en-US` formatting and converts the same trip data to miles and Fahrenheit (6.4 km → 4 mi; 24 °C → 75 °F). Other languages keep kilometers and Celsius. Switching languages updates both measurements.
 
 ## Screenshots
 
@@ -26,7 +26,7 @@ Each target gets fourteen capture sets: seven languages in two appearances. Desk
 
 ```sh
 scripts/capture.sh macos-appkit
-scripts/capture.sh ios-uikit --ios-device <simulator-UDID>
+scripts/capture.sh ios-uikit --ios-simulator <simulator-UDID>
 ANDROID_SERIAL=emulator-5554 scripts/capture.sh android-material --android-device emulator-5554
 ```
 
@@ -68,6 +68,7 @@ cargo test
 cargo clippy --all-targets -- -D warnings
 day lint --allow store-missing-field
 day launch -t macos-appkit --locale en --script dayscript/demo.yaml
+day launch -t macos-appkit --locale en-US --script dayscript/us-units.yaml
 ```
 
 The store-field waiver covers missing privacy-policy URLs for this unpublished sample. `demo.yaml` exercises traveler counts, packing switches, and language selection; capture scripts preserve the selected locale instead.

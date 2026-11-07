@@ -1,0 +1,12 @@
+# Expected display strings are test fixtures for US and French measurements.
+# This walkthrough checks live conversion; capture walkthroughs preserve locale.
+flow:
+  - wait_for: { id: weather }
+  - assert_text: { id: walking_distance, text: "4 mi on foot" }
+  - assert_text: { id: weather, text: "75 °F · Clear skies" }
+  - select: { id: language_picker, index: 1 }
+  - assert_text: { id: walking_distance, text: "6,4 km à pied" }
+  - assert_text: { id: weather, text: "24 °C · Ciel dégagé" }
+  - select: { id: language_picker, index: 0 }
+  - assert_text: { id: walking_distance, text: "4 mi on foot" }
+  - assert_text: { id: weather, text: "75 °F · Clear skies" }

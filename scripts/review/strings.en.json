@@ -22,5 +22,6 @@
   "preview": "Localization preview",
   "review_controls": "Review and export decisions",
   "loading": "Loading preview",
-  "load_error": "This screenshot could not be loaded. Select another view or reload the page."
+  "load_error": "This screenshot could not be loaded. Select another view or reload the page.",
+  "icon_sources": "Icon sources"
 }
