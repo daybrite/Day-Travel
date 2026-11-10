@@ -106,7 +106,7 @@ fn harbour_art(compact: bool) -> impl Piece {
         } else {
             1200.0 / 280.0
         })
-        .grow()
+        .grow(Dimension::Both)
 }
 
 /// Keep the same state while resizing or changing language. All app text and illustrations
@@ -140,7 +140,7 @@ pub fn root() -> impl Piece {
                     .spacing(Space::XS),
                 ))
                 .spacing(Space::S)
-                .grow(),
+                .grow(Dimension::Both),
                 row((
                     column((
                         label(res::str::language()).font(Font::Caption).color(muted),
@@ -211,7 +211,7 @@ pub fn root() -> impl Piece {
                     ))
                     .align(HAlign::Leading)
                     .spacing(Space::S)
-                    .grow(),
+                    .grow(Dimension::Both),
                     column((
                         label(res::str::trip_date("2027-06-18"))
                             .font(Font::Headline)
@@ -282,7 +282,7 @@ pub fn root() -> impl Piece {
                 .padding(Space::L)
                 .background(surface)
                 .corner_radius(16.0)
-                .grow(),
+                .grow(Dimension::Both),
                 column((
                     column((
                         heading(res::str::budget()),
@@ -314,7 +314,7 @@ pub fn root() -> impl Piece {
                             ))
                             .align(HAlign::Leading)
                             .spacing(Space::XS)
-                            .grow(),
+                            .grow(Dimension::Both),
                             button(res::str::remove_traveler())
                                 .icon(Symbol::Remove)
                                 .icon_only()
@@ -380,7 +380,7 @@ pub fn root() -> impl Piece {
                 ))
                 .align(HAlign::Leading)
                 .spacing(Space::M)
-                .grow(),
+                .grow(Dimension::Both),
             ))
             .align(VAlign::Top)
             .stack_at(WidthClass::Compact)
@@ -403,7 +403,7 @@ pub fn root() -> impl Piece {
         .spacing(Space::L)
         .padding(Space::L)
         .max_width(1120.0)
-        .grow(),
+        .grow(Dimension::Both),
     )
     .background(paper)
     .id(day::id!(travel_screen))
@@ -432,7 +432,7 @@ fn itinerary_item<A, B, C>(
         ))
         .align(HAlign::Leading)
         .spacing(Space::XS)
-        .grow(),
+        .grow(Dimension::Both),
     ))
     .spacing(Space::M)
     .align(VAlign::Top)
