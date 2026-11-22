@@ -1,0 +1,20 @@
+# Trip planning and city navigation.
+choose_city = إلى أين ستسافر؟
+search_cities = ابحث عن مدينة أو بلد
+no_cities = لا توجد مدن تطابق بحثك.
+map_heading = استكشف العالم
+map_hint = اختر علامة لتخطيط زيارتك.
+map_world = خريطة العالم
+map_zoom_in = تكبير
+map_zoom_out = تصغير
+map_loading = جارٍ تحميل الخريطة…
+map_unavailable = الخريطة غير متاحة. يمكنك تصفح جميع المدن أعلاه.
+departure = المغادرة
+departing_on = المغادرة: { DATETIME($date, dateStyle: "long") }
+return_on = العودة: { DATETIME($date, dateStyle: "long") }
+travelers = المسافرون
+traveler_count = عدد المسافرين: { NUMBER($count, maximumFractionDigits: 0) }
+interests = الاهتمامات
+interest_mixed = قليل من كل شيء
+interest_culture = الثقافة والطعام
+interest_nature = الطبيعة والهواء الطلق

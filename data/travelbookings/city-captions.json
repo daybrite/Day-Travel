@@ -1,0 +1,422 @@
+{
+  "paris": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The City of Light",
+      "fr": "La Ville Lumière",
+      "de": "Die Stadt des Lichts",
+      "ja": "光の都",
+      "zh-CN": "光之城",
+      "ko": "빛의 도시",
+      "ar": "مدينة النور"
+    }
+  },
+  "tokyo": {
+    "kind": "description",
+    "publisher": "GO TOKYO",
+    "source_url": "https://www.gotokyo.org/book/wp-content/uploads/2025/11/AO_2511_discover-tokyo_low_EN.pdf",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Japan’s capital",
+      "fr": "La capitale du Japon",
+      "de": "Japans Hauptstadt",
+      "ja": "日本の首都",
+      "zh-CN": "日本首都",
+      "ko": "일본의 수도",
+      "ar": "عاصمة اليابان"
+    }
+  },
+  "new_york": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The Big Apple",
+      "fr": "La Grosse Pomme",
+      "de": "Der Big Apple",
+      "ja": "ビッグアップル",
+      "zh-CN": "大苹果",
+      "ko": "빅 애플",
+      "ar": "التفاحة الكبيرة"
+    }
+  },
+  "london": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The Big Smoke",
+      "fr": "La Grande Fumée",
+      "de": "Der große Rauch",
+      "ja": "ビッグ・スモーク",
+      "zh-CN": "大烟城",
+      "ko": "빅 스모크",
+      "ar": "الدخان الكبير"
+    }
+  },
+  "rome": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The Eternal City",
+      "fr": "La Ville éternelle",
+      "de": "Die Ewige Stadt",
+      "ja": "永遠の都",
+      "zh-CN": "永恒之城",
+      "ko": "영원의 도시",
+      "ar": "المدينة الخالدة"
+    }
+  },
+  "barcelona": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The City of Gaudí",
+      "fr": "La ville de Gaudí",
+      "de": "Die Stadt Gaudís",
+      "ja": "ガウディの街",
+      "zh-CN": "高迪之城",
+      "ko": "가우디의 도시",
+      "ar": "مدينة غاودي"
+    }
+  },
+  "sydney": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The Harbour City",
+      "fr": "La ville du port",
+      "de": "Die Hafenstadt",
+      "ja": "港の街",
+      "zh-CN": "海港之城",
+      "ko": "항구의 도시",
+      "ar": "مدينة الميناء"
+    }
+  },
+  "moscow": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Third Rome",
+      "fr": "La Troisième Rome",
+      "de": "Das dritte Rom",
+      "ja": "第三のローマ",
+      "zh-CN": "第三罗马",
+      "ko": "제3의 로마",
+      "ar": "روما الثالثة"
+    }
+  },
+  "cape_town": {
+    "kind": "nickname",
+    "publisher": "Cape Town Tourism",
+    "source_url": "https://www.capetown.travel/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The Mother City",
+      "fr": "La Cité mère",
+      "de": "Die Mutterstadt",
+      "ja": "母なる街",
+      "zh-CN": "母城",
+      "ko": "어머니의 도시",
+      "ar": "المدينة الأم"
+    }
+  },
+  "bangkok": {
+    "kind": "nickname",
+    "publisher": "Tourism Authority of Thailand",
+    "source_url": "https://www.tatnews.org/2026/09/tat-spotlights-bangkok-art-biennale-2026-as-a-contemporary-citywide-art-experience/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The City of Angels",
+      "fr": "La Cité des anges",
+      "de": "Die Stadt der Engel",
+      "ja": "天使の都",
+      "zh-CN": "天使之城",
+      "ko": "천사의 도시",
+      "ar": "مدينة الملائكة"
+    }
+  },
+  "toronto": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Queen City",
+      "fr": "La ville reine",
+      "de": "Die Königinnenstadt",
+      "ja": "女王の街",
+      "zh-CN": "女王之城",
+      "ko": "여왕의 도시",
+      "ar": "مدينة الملكة"
+    }
+  },
+  "lisbon": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "City of Seven Hills",
+      "fr": "La ville aux sept collines",
+      "de": "Die Stadt der sieben Hügel",
+      "ja": "七つの丘の街",
+      "zh-CN": "七丘之城",
+      "ko": "일곱 언덕의 도시",
+      "ar": "مدينة التلال السبع"
+    }
+  },
+  "dubai": {
+    "kind": "nickname",
+    "publisher": "Visit Dubai",
+    "source_url": "https://www.visitdubai.com/en/explore-dubai/dubai-neighbourhoods/deira",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The City of Gold",
+      "fr": "La Cité de l’or",
+      "de": "Die Stadt des Goldes",
+      "ja": "黄金の街",
+      "zh-CN": "黄金之城",
+      "ko": "황금의 도시",
+      "ar": "مدينة الذهب"
+    }
+  },
+  "singapore": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The Lion City",
+      "fr": "La Cité du lion",
+      "de": "Die Löwenstadt",
+      "ja": "獅子の街",
+      "zh-CN": "狮城",
+      "ko": "사자의 도시",
+      "ar": "مدينة الأسد"
+    }
+  },
+  "hong_kong": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Pearl of the Orient",
+      "fr": "La Perle de l’Orient",
+      "de": "Die Perle des Orients",
+      "ja": "東洋の真珠",
+      "zh-CN": "东方之珠",
+      "ko": "동양의 진주",
+      "ar": "لؤلؤة الشرق"
+    }
+  },
+  "melbourne": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "City by the Bay",
+      "fr": "La ville au bord de la baie",
+      "de": "Die Stadt an der Bucht",
+      "ja": "湾のほとりの街",
+      "zh-CN": "海湾之城",
+      "ko": "만의 도시",
+      "ar": "مدينة على الخليج"
+    }
+  },
+  "berlin": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The Grey City",
+      "fr": "La ville grise",
+      "de": "Die graue Stadt",
+      "ja": "灰色の街",
+      "zh-CN": "灰色之城",
+      "ko": "회색 도시",
+      "ar": "المدينة الرمادية"
+    }
+  },
+  "amsterdam": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Venice of the North",
+      "fr": "La Venise du Nord",
+      "de": "Venedig des Nordens",
+      "ja": "北のベネチア",
+      "zh-CN": "北方威尼斯",
+      "ko": "북방의 베네치아",
+      "ar": "بندقية الشمال"
+    }
+  },
+  "vancouver": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Raincity",
+      "fr": "La ville de la pluie",
+      "de": "Die Regenstadt",
+      "ja": "雨の街",
+      "zh-CN": "雨城",
+      "ko": "비의 도시",
+      "ar": "مدينة المطر"
+    }
+  },
+  "buenos_aires": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Paris of the Americas",
+      "fr": "Le Paris des Amériques",
+      "de": "Das Paris Amerikas",
+      "ja": "南北アメリカのパリ",
+      "zh-CN": "美洲巴黎",
+      "ko": "아메리카의 파리",
+      "ar": "باريس الأمريكتين"
+    }
+  },
+  "sao_paulo": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Sampa",
+      "fr": "Sampa",
+      "de": "Sampa",
+      "ja": "サンパ",
+      "zh-CN": "桑帕",
+      "ko": "삼파",
+      "ar": "سامبا"
+    }
+  },
+  "taipei": {
+    "kind": "description",
+    "publisher": "Taipei City tourism office",
+    "source_url": "https://travel.taipei/file/35756/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Night markets and Taipei 101",
+      "fr": "Marchés de nuit et Taipei 101",
+      "de": "Nachtmärkte und Taipei 101",
+      "ja": "夜市と台北101",
+      "zh-CN": "夜市与台北101",
+      "ko": "야시장과 타이베이 101",
+      "ar": "الأسواق الليلية وتايبيه 101"
+    }
+  },
+  "istanbul": {
+    "kind": "description",
+    "publisher": "Türkiye Ministry of Culture and Tourism",
+    "source_url": "https://www.ktb.gov.tr/EN-33048/istanbul.html",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Where Europe meets Asia",
+      "fr": "Là où l’Europe rencontre l’Asie",
+      "de": "Wo Europa auf Asien trifft",
+      "ja": "ヨーロッパとアジアが出会う街",
+      "zh-CN": "欧亚交汇之地",
+      "ko": "유럽과 아시아가 만나는 곳",
+      "ar": "حيث تلتقي أوروبا بآسيا"
+    }
+  },
+  "mexico_city": {
+    "kind": "designation",
+    "publisher": "UNESCO Creative Cities Network",
+    "source_url": "https://www.unesco.org/en/creative-cities/mexico-city",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "UNESCO City of Design",
+      "fr": "Ville UNESCO de design",
+      "de": "UNESCO-Designstadt",
+      "ja": "ユネスコデザイン都市",
+      "zh-CN": "联合国教科文组织设计之都",
+      "ko": "유네스코 디자인 창의도시",
+      "ar": "مدينة التصميم لدى اليونسكو"
+    }
+  },
+  "dublin": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "The Fair City",
+      "fr": "La belle ville",
+      "de": "Die schöne Stadt",
+      "ja": "美しき街",
+      "zh-CN": "美丽之城",
+      "ko": "아름다운 도시",
+      "ar": "المدينة الجميلة"
+    }
+  },
+  "las_vegas": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Sin City",
+      "fr": "La ville du péché",
+      "de": "Die Stadt der Sünde",
+      "ja": "罪の街",
+      "zh-CN": "罪恶之城",
+      "ko": "죄악의 도시",
+      "ar": "مدينة الخطيئة"
+    }
+  },
+  "rio_de_janeiro": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Marvelous City",
+      "fr": "La ville merveilleuse",
+      "de": "Die wunderbare Stadt",
+      "ja": "素晴らしき街",
+      "zh-CN": "奇妙之城",
+      "ko": "경이로운 도시",
+      "ar": "المدينة الرائعة"
+    }
+  },
+  "cairo": {
+    "kind": "nickname",
+    "publisher": "Spike’s Sight Words",
+    "source_url": "https://spikessightwords.com/100-nicknames-for-cities/",
+    "checked": "2026-11-21",
+    "text": {
+      "en": "Paris of the Nile",
+      "fr": "Le Paris du Nil",
+      "de": "Das Paris am Nil",
+      "ja": "ナイルのパリ",
+      "zh-CN": "尼罗河畔的巴黎",
+      "ko": "나일강의 파리",
+      "ar": "باريس النيل"
+    }
+  }
+}

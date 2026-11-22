@@ -9,9 +9,9 @@ name = "dayapp"
 [features]
 default = ["mock"]
 mock = ["day/mock"]
-appkit = ["day/appkit"]
-uikit = ["day/uikit"]
-material = ["day/material"]
+appkit = ["day/appkit", "day-piece-map-apple/appkit"]
+uikit = ["day/uikit", "day-piece-map-apple/uikit"]
+material = ["day/material", "day-piece-map-google/material"]
 gtk = ["day/gtk"]
 qt = ["day/qt"]
 winui = ["day/winui"]
@@ -21,6 +21,10 @@ dom = ["day/dom"]
 
 [dependencies]
 day = { package = "day-app", version = "0.*" }
+day-piece-map = "0.*"
+day-piece-map-apple = "0.*"
+day-piece-map-google = "0.*"
+day-piece-map-canvas = "0.*"
 
 [build-dependencies]
 day-build = "0.*"

@@ -6,8 +6,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools">
     <application>
-        <!-- For example, an SDK's metadata:
-        <meta-data android:name="com.example.sdk.OPTION" android:value="true" />
-        -->
+        <!-- Local key resource is written by scripts/configure_google_maps.py. -->
+        <meta-data android:name="com.google.android.geo.API_KEY"
+                   android:value="@string/day_google_maps_api_key" />
     </application>
 </manifest>

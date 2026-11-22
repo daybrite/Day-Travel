@@ -1,0 +1,12 @@
+{
+  "name": "day-travel-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test preview-images.test.mjs"
+  },
+  "dependencies": {
+    "astro": "5.18.2",
+    "sharp": "0.34.5"
+  }
+}

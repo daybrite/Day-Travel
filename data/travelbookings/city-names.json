@@ -1,0 +1,254 @@
+{
+  "paris": {
+    "en": "Paris",
+    "fr": "Paris",
+    "de": "Paris",
+    "ja": "パリ",
+    "zh-CN": "巴黎",
+    "ko": "파리",
+    "ar": "باريس"
+  },
+  "tokyo": {
+    "en": "Tokyo",
+    "fr": "Tokyo",
+    "de": "Tokio",
+    "ja": "東京",
+    "zh-CN": "东京",
+    "ko": "도쿄",
+    "ar": "طوكيو"
+  },
+  "new_york": {
+    "en": "New York",
+    "fr": "New York",
+    "de": "New York",
+    "ja": "ニューヨーク",
+    "zh-CN": "纽约",
+    "ko": "뉴욕",
+    "ar": "نيويورك"
+  },
+  "london": {
+    "en": "London",
+    "fr": "Londres",
+    "de": "London",
+    "ja": "ロンドン",
+    "zh-CN": "伦敦",
+    "ko": "런던",
+    "ar": "لندن"
+  },
+  "rome": {
+    "en": "Rome",
+    "fr": "Rome",
+    "de": "Rom",
+    "ja": "ローマ",
+    "zh-CN": "罗马",
+    "ko": "로마",
+    "ar": "روما"
+  },
+  "barcelona": {
+    "en": "Barcelona",
+    "fr": "Barcelone",
+    "de": "Barcelona",
+    "ja": "バルセロナ",
+    "zh-CN": "巴塞罗那",
+    "ko": "바르셀로나",
+    "ar": "برشلونة"
+  },
+  "sydney": {
+    "en": "Sydney",
+    "fr": "Sydney",
+    "de": "Sydney",
+    "ja": "シドニー",
+    "zh-CN": "悉尼",
+    "ko": "시드니",
+    "ar": "سيدني"
+  },
+  "moscow": {
+    "en": "Moscow",
+    "fr": "Moscou",
+    "de": "Moskau",
+    "ja": "モスクワ",
+    "zh-CN": "莫斯科",
+    "ko": "모스크바",
+    "ar": "موسكو"
+  },
+  "cape_town": {
+    "en": "Cape Town",
+    "fr": "Le Cap",
+    "de": "Kapstadt",
+    "ja": "ケープタウン",
+    "zh-CN": "开普敦",
+    "ko": "케이프타운",
+    "ar": "كيب تاون"
+  },
+  "bangkok": {
+    "en": "Bangkok",
+    "fr": "Bangkok",
+    "de": "Bangkok",
+    "ja": "バンコク",
+    "zh-CN": "曼谷",
+    "ko": "방콕",
+    "ar": "بانكوك"
+  },
+  "toronto": {
+    "en": "Toronto",
+    "fr": "Toronto",
+    "de": "Toronto",
+    "ja": "トロント",
+    "zh-CN": "多伦多",
+    "ko": "토론토",
+    "ar": "تورونتو"
+  },
+  "lisbon": {
+    "en": "Lisbon",
+    "fr": "Lisbonne",
+    "de": "Lissabon",
+    "ja": "リスボン",
+    "zh-CN": "里斯本",
+    "ko": "리스본",
+    "ar": "لشبونة"
+  },
+  "dubai": {
+    "en": "Dubai",
+    "fr": "Dubaï",
+    "de": "Dubai",
+    "ja": "ドバイ",
+    "zh-CN": "迪拜",
+    "ko": "두바이",
+    "ar": "دبي"
+  },
+  "singapore": {
+    "en": "Singapore",
+    "fr": "Singapour",
+    "de": "Singapur",
+    "ja": "シンガポール",
+    "zh-CN": "新加坡",
+    "ko": "싱가포르",
+    "ar": "سنغافورة"
+  },
+  "hong_kong": {
+    "en": "Hong Kong",
+    "fr": "Hong Kong",
+    "de": "Hongkong",
+    "ja": "香港",
+    "zh-CN": "香港",
+    "ko": "홍콩",
+    "ar": "هونغ كونغ"
+  },
+  "melbourne": {
+    "en": "Melbourne",
+    "fr": "Melbourne",
+    "de": "Melbourne",
+    "ja": "メルボルン",
+    "zh-CN": "墨尔本",
+    "ko": "멜버른",
+    "ar": "ملبورن"
+  },
+  "berlin": {
+    "en": "Berlin",
+    "fr": "Berlin",
+    "de": "Berlin",
+    "ja": "ベルリン",
+    "zh-CN": "柏林",
+    "ko": "베를린",
+    "ar": "برلين"
+  },
+  "amsterdam": {
+    "en": "Amsterdam",
+    "fr": "Amsterdam",
+    "de": "Amsterdam",
+    "ja": "アムステルダム",
+    "zh-CN": "阿姆斯特丹",
+    "ko": "암스테르담",
+    "ar": "أمستردام"
+  },
+  "vancouver": {
+    "en": "Vancouver",
+    "fr": "Vancouver",
+    "de": "Vancouver",
+    "ja": "バンクーバー",
+    "zh-CN": "温哥华",
+    "ko": "밴쿠버",
+    "ar": "فانكوفر"
+  },
+  "buenos_aires": {
+    "en": "Buenos Aires",
+    "fr": "Buenos Aires",
+    "de": "Buenos Aires",
+    "ja": "ブエノスアイレス",
+    "zh-CN": "布宜诺斯艾利斯",
+    "ko": "부에노스아이레스",
+    "ar": "بوينس آيرس"
+  },
+  "sao_paulo": {
+    "en": "São Paulo",
+    "fr": "São Paulo",
+    "de": "São Paulo",
+    "ja": "サンパウロ",
+    "zh-CN": "圣保罗",
+    "ko": "상파울루",
+    "ar": "ساو باولو"
+  },
+  "taipei": {
+    "en": "Taipei",
+    "fr": "Taipei",
+    "de": "Taipeh",
+    "ja": "台北",
+    "zh-CN": "台北",
+    "ko": "타이베이",
+    "ar": "تايبيه"
+  },
+  "istanbul": {
+    "en": "Istanbul",
+    "fr": "Istanbul",
+    "de": "Istanbul",
+    "ja": "イスタンブール",
+    "zh-CN": "伊斯坦布尔",
+    "ko": "이스탄불",
+    "ar": "إسطنبول"
+  },
+  "mexico_city": {
+    "en": "Mexico City",
+    "fr": "Mexico",
+    "de": "Mexiko-Stadt",
+    "ja": "メキシコシティ",
+    "zh-CN": "墨西哥城",
+    "ko": "멕시코시티",
+    "ar": "مكسيكو سيتي"
+  },
+  "dublin": {
+    "en": "Dublin",
+    "fr": "Dublin",
+    "de": "Dublin",
+    "ja": "ダブリン",
+    "zh-CN": "都柏林",
+    "ko": "더블린",
+    "ar": "دبلن"
+  },
+  "las_vegas": {
+    "en": "Las Vegas",
+    "fr": "Las Vegas",
+    "de": "Las Vegas",
+    "ja": "ラスベガス",
+    "zh-CN": "拉斯维加斯",
+    "ko": "라스베이거스",
+    "ar": "لاس فيغاس"
+  },
+  "rio_de_janeiro": {
+    "en": "Rio de Janeiro",
+    "fr": "Rio de Janeiro",
+    "de": "Rio de Janeiro",
+    "ja": "リオデジャネイロ",
+    "zh-CN": "里约热内卢",
+    "ko": "리우데자네이루",
+    "ar": "ريو دي جانيرو"
+  },
+  "cairo": {
+    "en": "Cairo",
+    "fr": "Le Caire",
+    "de": "Kairo",
+    "ja": "カイロ",
+    "zh-CN": "开罗",
+    "ko": "카이로",
+    "ar": "القاهرة"
+  }
+}

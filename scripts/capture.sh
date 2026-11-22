@@ -9,5 +9,7 @@ shift
 script=dayscript/capture-desktop.yaml
 case "$target" in ios-uikit|android-material|harmony-arkui) script=dayscript/capture-mobile.yaml;; esac
 cli=${DAY_CLI:-day}
-exec "$cli" launch -t "$target" --script "$script" \
-  --locales en,fr,de,ja,zh-CN,ko,ar --themes light,dark "$@"
+locales=$(python3 -c 'from pathlib import Path; tags=sorted(p.name for p in Path("resource/locales").iterdir() if p.is_dir()); print(",".join(sorted(tags, key=lambda tag: (tag != "en", tag))))')
+"$cli" launch -t "$target" --script "$script" \
+  --locales "$locales" --themes light,dark "$@"
+python3 scripts/ci/check-screenshots.py --root "${DAY_BUILD_DIR:-build/day}/screenshots" --target "$target"

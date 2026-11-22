@@ -1,0 +1,20 @@
+# Trip planning and city navigation.
+choose_city = Where will you go?
+search_cities = Search cities or countries
+no_cities = No cities match your search.
+map_heading = Explore the world
+map_hint = Choose a pin to plan your visit.
+map_world = World view
+map_zoom_in = Zoom in
+map_zoom_out = Zoom out
+map_loading = Loading the map…
+map_unavailable = The map is unavailable. You can still browse every city above.
+departure = Departure
+departing_on = Departing { DATETIME($date, dateStyle: "long") }
+return_on = Return on { DATETIME($date, dateStyle: "long") }
+travelers = Travelers
+traveler_count = Travelers: { NUMBER($count, maximumFractionDigits: 0) }
+interests = Interests
+interest_mixed = A little of everything
+interest_culture = Culture & food
+interest_nature = Outdoors & nature

@@ -1,0 +1,20 @@
+# Trip planning and city navigation.
+choose_city = Wohin geht die Reise?
+search_cities = Städte oder Länder suchen
+no_cities = Keine passenden Städte gefunden.
+map_heading = Die Welt entdecken
+map_hint = Wähle eine Markierung, um deine Reise zu planen.
+map_world = Weltansicht
+map_zoom_in = Vergrößern
+map_zoom_out = Verkleinern
+map_loading = Karte wird geladen…
+map_unavailable = Die Karte ist nicht verfügbar. Alle Städte findest du weiterhin oben.
+departure = Abreise
+departing_on = Abreise am { DATETIME($date, dateStyle: "long") }
+return_on = Rückreise am { DATETIME($date, dateStyle: "long") }
+travelers = Reisende
+traveler_count = Reisende: { NUMBER($count, maximumFractionDigits: 0) }
+interests = Thema
+interest_mixed = Von allem etwas
+interest_culture = Kultur & Essen
+interest_nature = Draußen & Natur

@@ -1,17 +1,60 @@
-# Initial AppKit review. Locale assertions use the same Fluent messages as the UI.
+# Synthetic input below is test data, separate from shipped interface text.
 flow:
+  - wait_for: { id: city_list }
+  - assert_no_placeholders: {}
+  - screenshot: city_browser
+  - scroll_to: { id: home_screen, edge: bottom }
+  - assert_visible: { id: destination_map }
+  - wait_for: { id: map_ready, timeout_secs: 60 }
+  - pause: { secs: 2.0 }
+  - screenshot: world_map
+  - tap: { id: map_zoom_in }
+  - tap: { id: map_world }
+  - scroll_to: { id: home_screen, edge: top }
+  - input: { id: city_search, text: "Tokyo" }
+  - select: { id: city_list, index: 0 }
   - wait_for: { id: trip_title }
-  - assert_text: { id: trip_title, key: trip_title }
-  - assert_text: { id: traveler_count, key: travelers, args: { count: 2 } }
-  - screenshot: travel-desktop
-  - tap: { id: add_traveler }
-  - assert_text: { id: traveler_count, key: travelers, args: { count: 3 } }
-  - tap: { id: remove_traveler }
-  - toggle: { id: jacket, value: true }
-  - assert_value: { id: jacket, value: true }
-  - toggle: { id: jacket, value: false }
-
+  - assert_text: { id: trip_title, key: city_tokyo }
+  - assert_route: { route: city-1 }
+  - assert_visible: { id: destination_photo }
+  - assert_no_placeholders: {}
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - screenshot: city_detail
+  - input: { id: departure_date, text: "2030-01-29" }
+  - set_value: { id: stay_slider, value: 6 }
+  - set_value: { id: travelers_stepper, value: 3 }
+  - select: { id: interest_picker, index: 1 }
+  - toggle: { id: round_trip_toggle, value: false }
+  - input: { id: trip_name, text: "Synthetic winter trip" }
+  - assert_visible: { id: city_map }
+  - screenshot: itinerary_controls
+  - select: { id: ticket_picker, index: 1 }
+  - tap: { id: save_trip }
+  - wait_for: { id: saved_city }
+  - assert_text: { id: saved_city, key: city_tokyo }
+  - assert_text: { id: saved_name, text: "Synthetic winter trip" }
+  - assert_text: { id: saved_departure, key: departing_on, args: { date: "2030-01-29" } }
+  - assert_hidden: { id: saved_return }
+  - assert_text: { id: saved_stay, key: stay_length, args: { count: 6 } }
+  - assert_text: { id: saved_travelers, key: traveler_count, args: { count: 3 } }
+  - assert_text: { id: saved_interest, key: interest_culture }
+  - assert_text: { id: saved_trip_type, key: one_way }
+  - scroll_to: { id: saved_screen, edge: bottom }
+  - screenshot: saved_itinerary
+  - assert_text: { id: saved_ticket, key: ticket_business }
+  - tap: { id: edit_trip }
+  - assert_value: { id: ticket_picker, value: 1 }
+  - wait_for: { id: departure_date }
+  - assert_value: { id: round_trip_toggle, value: false }
+  - assert_text: { id: stay_length, key: stay_length, args: { count: 6 } }
+  - nav_back: {}
+  - wait_for: { id: city_search }
+  - input: { id: city_search, text: "" }
+  - scroll_to: { id: home_screen, edge: top }
+  - tap: { id: open_settings }
   - select: { id: language_picker, index: 1 }
-  - assert_text: { id: trip_title, key: trip_title }
+  - nav_back: {}
+  - tap: { id: open_settings }
   - select: { id: language_picker, index: 0 }
-  - assert_text: { id: trip_title, key: trip_title }
+  - nav_back: {}

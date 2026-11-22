@@ -19,7 +19,12 @@ min_height = 400
 [dayscript.coverage]
 enabled = true
 
-# Desktop captures contain the whole screen. Mobile uses two native viewport captures.
+# Capture every city in its native viewport, in all locales and both themes.
 [screenshots]
 desktop-size = "2400x2000"
 desktop-scale = 2
+
+# Photo-led pages extend behind the mobile status and navigation bars.
+[android]
+edge-to-edge = true
+resource-overlays = ["platform/android/res"]

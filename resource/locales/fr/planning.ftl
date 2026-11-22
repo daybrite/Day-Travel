@@ -1,0 +1,20 @@
+# Trip planning and city navigation.
+choose_city = Où partirez-vous ?
+search_cities = Rechercher une ville ou un pays
+no_cities = Aucune ville ne correspond.
+map_heading = Explorer le monde
+map_hint = Choisissez un repère pour préparer votre visite.
+map_world = Vue mondiale
+map_zoom_in = Agrandir
+map_zoom_out = Réduire
+map_loading = Chargement de la carte…
+map_unavailable = La carte est indisponible. Les villes restent accessibles ci-dessus.
+departure = Départ
+departing_on = Départ le { DATETIME($date, dateStyle: "long") }
+return_on = Retour le { DATETIME($date, dateStyle: "long") }
+travelers = Voyageurs
+traveler_count = Voyageurs : { NUMBER($count, maximumFractionDigits: 0) }
+interests = Envies
+interest_mixed = Un peu de tout
+interest_culture = Culture et gastronomie
+interest_nature = Plein air et nature

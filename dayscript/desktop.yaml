@@ -1,0 +1,41 @@
+# Synthetic itinerary values exercise the desktop sidebar and shared planning state.
+flow:
+  - wait_for: { id: city_sidebar }
+  - assert_visible: { id: home_photo }
+  - assert_no_placeholders: {}
+  - screenshot: desktop_sidebar
+  - scroll_to: { id: home_screen, edge: bottom }
+  - wait_for: { id: map_ready, timeout_secs: 60 }
+  - screenshot: desktop_map
+  - navigate: { route: /city-1 }
+  - assert_text: { id: trip_title, key: city_tokyo }
+  - assert_visible: { id: city_sidebar }
+  - assert_no_placeholders: {}
+  - assert_text: { id: city_tagline, key: caption_tokyo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - screenshot: desktop_city
+  - input: { id: departure_date, text: "2030-01-29" }
+  - set_value: { id: stay_slider, value: 6 }
+  - set_value: { id: travelers_stepper, value: 3 }
+  - assert_visible: { id: city_map }
+  - select: { id: ticket_picker, index: 1 }
+  - tap: { id: save_trip }
+  - wait_for: { id: saved_city }
+  - assert_text: { id: saved_city, key: city_tokyo }
+  - assert_text: { id: saved_trip_type, key: round_trip }
+  - assert_text: { id: saved_return, key: return_on, args: { date: "2030-02-04" } }
+  - assert_text: { id: saved_ticket, key: ticket_business }
+  - tap: { id: edit_trip }
+  - assert_value: { id: ticket_picker, value: 1 }
+  - assert_text: { id: trip_title, key: city_tokyo }
+  - navigate: { route: /city-0 }
+  - assert_text: { id: trip_title, key: city_paris }
+  - navigate: { route: /settings }
+  - select: { id: language_picker, index: 1 }
+  - navigate: { route: /city-1 }
+  - assert_text: { id: trip_title, key: city_tokyo }
+  - navigate: { route: /settings }
+  - select: { id: language_picker, index: 0 }
+  - navigate: { route: /discover }
+  - assert_visible: { id: home_photo }

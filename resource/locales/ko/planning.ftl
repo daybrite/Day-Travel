@@ -1,0 +1,20 @@
+# Trip planning and city navigation.
+choose_city = 어디로 떠날까요?
+search_cities = 도시 또는 국가 검색
+no_cities = 검색과 일치하는 도시가 없습니다.
+map_heading = 세계 둘러보기
+map_hint = 핀을 선택해 여행을 계획하세요.
+map_world = 세계 지도
+map_zoom_in = 확대
+map_zoom_out = 축소
+map_loading = 지도 불러오는 중…
+map_unavailable = 지도를 사용할 수 없습니다. 위 목록에서 도시를 둘러보세요.
+departure = 출발일
+departing_on = 출발: { DATETIME($date, dateStyle: "long") }
+return_on = 귀환: { DATETIME($date, dateStyle: "long") }
+travelers = 여행 인원
+traveler_count = 여행 인원: { NUMBER($count, maximumFractionDigits: 0) }
+interests = 관심사
+interest_mixed = 다양하게 즐기기
+interest_culture = 문화와 음식
+interest_nature = 야외와 자연

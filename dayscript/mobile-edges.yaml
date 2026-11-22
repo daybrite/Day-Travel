@@ -1,0 +1,28 @@
+flow:
+  - wait_for: { id: city_list }
+  - screenshot: edge_home
+  - select: { id: city_list, index: 0 }
+  - assert_text: { id: trip_title, key: city_paris }
+  - assert_text: { id: city_tagline, key: caption_paris }
+  - screenshot: edge_paris
+  - nav_back: { native: true }
+  - wait_for: { id: city_list }
+  - tap: { id: open_settings }
+  - assert_visible: { id: language_picker }
+  - screenshot: edge_settings
+  - nav_back: { native: true }
+  - wait_for: { id: city_list }
+  - select: { id: city_list, index: 1 }
+  - assert_text: { id: trip_title, key: city_tokyo }
+  - assert_no_placeholders: {}
+  - assert_text: { id: city_tagline, key: caption_tokyo }
+  - screenshot: edge_tokyo
+  - assert_visible: { id: save_trip }
+  - screenshot: edge_city_controls
+  - nav_back: { native: true }
+  - wait_for: { id: city_list }
+  - select: { id: city_list, index: 3 }
+  - assert_text: { id: city_tagline, key: caption_london }
+  - screenshot: edge_london
+  - nav_back: { native: true }
+  - wait_for: { id: city_list }

@@ -1,0 +1,20 @@
+# Trip planning and city navigation.
+choose_city = 下一站，去哪里？
+search_cities = 搜索城市或国家
+no_cities = 没有匹配的城市。
+map_heading = 探索世界
+map_hint = 选择地图标记，规划旅程。
+map_world = 全球视图
+map_zoom_in = 放大
+map_zoom_out = 缩小
+map_loading = 正在加载地图…
+map_unavailable = 地图暂不可用，您仍可浏览上方的城市。
+departure = 出发日期
+departing_on = 出发：{ DATETIME($date, dateStyle: "long") }
+return_on = 返回：{ DATETIME($date, dateStyle: "long") }
+travelers = 出行人数
+traveler_count = 出行人数：{ NUMBER($count, maximumFractionDigits: 0) }
+interests = 旅行兴趣
+interest_mixed = 多样体验
+interest_culture = 文化与美食
+interest_nature = 户外与自然

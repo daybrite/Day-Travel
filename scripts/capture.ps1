@@ -15,6 +15,10 @@ if ($SmallBuild) {
     $env:CARGO_PROFILE_DEV_INCREMENTAL = 'false'
     $env:CARGO_INCREMENTAL = '0'
 }
+$Locales = ((Get-ChildItem resource/locales -Directory | Sort-Object Name).Name -join ',')
 & $Cli launch -t $Target --script dayscript/capture-desktop.yaml `
-    --locales 'en,fr,de,ja,zh-CN,ko,ar' --themes 'light,dark'
+    --locales $Locales --themes 'light,dark'
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+$BuildDir = if ($env:DAY_BUILD_DIR) { $env:DAY_BUILD_DIR } else { 'build/day' }
+python scripts/ci/check-screenshots.py --root "$BuildDir/screenshots" --target $Target
 exit $LASTEXITCODE

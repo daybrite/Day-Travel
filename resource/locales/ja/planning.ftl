@@ -1,0 +1,20 @@
+# Trip planning and city navigation.
+choose_city = 次はどこへ？
+search_cities = 都市や国を検索
+no_cities = 一致する都市がありません。
+map_heading = 世界を探索
+map_hint = ピンを選んで旅を計画しましょう。
+map_world = 世界全体
+map_zoom_in = 拡大
+map_zoom_out = 縮小
+map_loading = 地図を読み込み中…
+map_unavailable = 地図を表示できません。上の一覧から都市を選べます。
+departure = 出発日
+departing_on = 出発：{ DATETIME($date, dateStyle: "long") }
+return_on = 帰着：{ DATETIME($date, dateStyle: "long") }
+travelers = 人数
+traveler_count = 人数：{ NUMBER($count, maximumFractionDigits: 0) }
+interests = 旅のテーマ
+interest_mixed = いろいろ楽しむ
+interest_culture = 文化とグルメ
+interest_nature = 自然とアウトドア

@@ -22,6 +22,8 @@ jobs:
   app:
     needs: capture-setup
     uses: daybrite/actions/.github/workflows/dayapp.yml@v1
+    secrets:
+      DAY_GOOGLE_MAPS_API_KEY: ${{ secrets.DAY_GOOGLE_MAPS_API_KEY }}
     permissions:
       contents: write # Standard release artifacts on version tags.
       pages: write
@@ -53,6 +55,7 @@ jobs:
       # for this sample, which has no store submission or store-upload configuration.
       lint: false
       target-setup: |
+        android-material: python3 scripts/configure_google_maps.py
         macos-appkit, macos-gtk, macos-qt, ios-uikit, android-material, linux-gtk, linux-qt, windows-winui, harmony-arkui, web-dom: "$DAY_BIN" lint --allow store-missing-field
       script-setup: source scripts/ci/setup-captures.sh
       app-id: dev.daybrite.travel

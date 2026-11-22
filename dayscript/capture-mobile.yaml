@@ -1,11 +1,283 @@
-# Capture native viewports, preserving the same state in the paired images.
+# Generated: every TravelBookings destination in catalog order.
 flow:
-  - wait_for: { id: trip_title }
-  - assert_text: { id: trip_title, key: trip_title }
-  - assert_text: { id: traveler_count, key: travelers, args: { count: 2 } }
-  - scroll_to: { id: travel_screen, edge: top }
+  - wait_for: { id: home_screen }
+  - select: { id: city_list, index: 0 }
+  - assert_text: { id: trip_title, key: city_paris }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
   - wait_idle: {}
-  - screenshot: top
-  - scroll_to: { id: travel_screen, edge: bottom }
+  - screenshot: paris
+  - nav_back: {}
+  - select: { id: city_list, index: 1 }
+  - assert_text: { id: trip_title, key: city_tokyo }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
   - wait_idle: {}
-  - screenshot: bottom
+  - screenshot: tokyo
+  - nav_back: {}
+  - select: { id: city_list, index: 2 }
+  - assert_text: { id: trip_title, key: city_new_york }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: new_york
+  - nav_back: {}
+  - select: { id: city_list, index: 3 }
+  - assert_text: { id: trip_title, key: city_london }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: london
+  - nav_back: {}
+  - select: { id: city_list, index: 4 }
+  - assert_text: { id: trip_title, key: city_rome }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: rome
+  - nav_back: {}
+  - select: { id: city_list, index: 5 }
+  - assert_text: { id: trip_title, key: city_barcelona }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: barcelona
+  - nav_back: {}
+  - select: { id: city_list, index: 6 }
+  - assert_text: { id: trip_title, key: city_sydney }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: sydney
+  - nav_back: {}
+  - select: { id: city_list, index: 7 }
+  - assert_text: { id: trip_title, key: city_moscow }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: moscow
+  - nav_back: {}
+  - select: { id: city_list, index: 8 }
+  - assert_text: { id: trip_title, key: city_cape_town }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: cape_town
+  - nav_back: {}
+  - select: { id: city_list, index: 9 }
+  - assert_text: { id: trip_title, key: city_bangkok }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: bangkok
+  - nav_back: {}
+  - select: { id: city_list, index: 10 }
+  - assert_text: { id: trip_title, key: city_toronto }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: toronto
+  - nav_back: {}
+  - select: { id: city_list, index: 11 }
+  - assert_text: { id: trip_title, key: city_lisbon }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: lisbon
+  - nav_back: {}
+  - select: { id: city_list, index: 12 }
+  - assert_text: { id: trip_title, key: city_dubai }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: dubai
+  - nav_back: {}
+  - select: { id: city_list, index: 13 }
+  - assert_text: { id: trip_title, key: city_singapore }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: singapore
+  - nav_back: {}
+  - select: { id: city_list, index: 14 }
+  - assert_text: { id: trip_title, key: city_hong_kong }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: hong_kong
+  - nav_back: {}
+  - select: { id: city_list, index: 15 }
+  - assert_text: { id: trip_title, key: city_melbourne }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: melbourne
+  - nav_back: {}
+  - select: { id: city_list, index: 16 }
+  - assert_text: { id: trip_title, key: city_berlin }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: berlin
+  - nav_back: {}
+  - select: { id: city_list, index: 17 }
+  - assert_text: { id: trip_title, key: city_amsterdam }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: amsterdam
+  - nav_back: {}
+  - select: { id: city_list, index: 18 }
+  - assert_text: { id: trip_title, key: city_vancouver }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: vancouver
+  - nav_back: {}
+  - select: { id: city_list, index: 19 }
+  - assert_text: { id: trip_title, key: city_buenos_aires }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: buenos_aires
+  - nav_back: {}
+  - select: { id: city_list, index: 20 }
+  - assert_text: { id: trip_title, key: city_sao_paulo }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: sao_paulo
+  - nav_back: {}
+  - select: { id: city_list, index: 21 }
+  - assert_text: { id: trip_title, key: city_taipei }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: taipei
+  - nav_back: {}
+  - select: { id: city_list, index: 22 }
+  - assert_text: { id: trip_title, key: city_istanbul }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: istanbul
+  - nav_back: {}
+  - select: { id: city_list, index: 23 }
+  - assert_text: { id: trip_title, key: city_mexico_city }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: mexico_city
+  - nav_back: {}
+  - select: { id: city_list, index: 24 }
+  - assert_text: { id: trip_title, key: city_dublin }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: dublin
+  - nav_back: {}
+  - select: { id: city_list, index: 25 }
+  - assert_text: { id: trip_title, key: city_las_vegas }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: las_vegas
+  - nav_back: {}
+  - select: { id: city_list, index: 26 }
+  - assert_text: { id: trip_title, key: city_rio_de_janeiro }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: rio_de_janeiro
+  - nav_back: {}
+  - select: { id: city_list, index: 27 }
+  - assert_text: { id: trip_title, key: city_cairo }
+  - assert_visible: { id: destination_photo }
+  - wait_for: { id: city_map_ready, timeout_secs: 60 }
+  - assert_visible: { id: city_map }
+  - assert_visible: { id: ticket_picker }
+  - assert_visible: { id: round_trip_toggle }
+  - wait_idle: {}
+  - screenshot: cairo
+  - nav_back: {}

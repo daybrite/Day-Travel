@@ -17,6 +17,7 @@ __pycache__/
 /platform/android/.gradle/
 /platform/android/**/build/
 /platform/android/local.properties
+/platform/android/res/values/maps-local.xml
 /platform/harmony/entry/src/main/resources/base/media
 /platform/harmony/AppScope/resources/base/media
 /platform/*/DayApp.local.xcconfig

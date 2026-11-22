@@ -1,12 +1,12 @@
-# Expected display strings are test fixtures for US and French measurements.
-# This walkthrough checks live conversion; capture walkthroughs preserve locale.
+# Compatibility entry point: verify live localization in the city navigation stack.
 flow:
-  - wait_for: { id: weather }
-  - assert_text: { id: walking_distance, text: "4 mi on foot" }
-  - assert_text: { id: weather, text: "75 °F · Clear skies" }
+  - wait_for: { id: city_list }
+  - tap: { id: open_settings }
   - select: { id: language_picker, index: 1 }
-  - assert_text: { id: walking_distance, text: "6,4 km à pied" }
-  - assert_text: { id: weather, text: "24 °C · Ciel dégagé" }
+  - nav_back: {}
+  - select: { id: city_list, index: 0 }
+  - assert_text: { id: trip_title, key: city_paris }
+  - nav_back: {}
+  - tap: { id: open_settings }
   - select: { id: language_picker, index: 0 }
-  - assert_text: { id: walking_distance, text: "4 mi on foot" }
-  - assert_text: { id: weather, text: "75 °F · Clear skies" }
+  - nav_back: {}
