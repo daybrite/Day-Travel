@@ -43,8 +43,10 @@ jobs:
         ios-uikit, android-material, harmony-arkui: dayscript/capture-mobile.yaml
       locales: all
       themes: light dark
+      # Use a single-display phone. The broad iPhone prefix can select a dual-screen
+      # simulator, where simctl screenshots require an explicit display selection.
       ios-devices: |
-        device=iPhone, orientation=portrait, slug=phone
+        device=iPhone * Pro, orientation=portrait, slug=phone
       android-devices: |
         device=pixel, os=36, orientation=portrait, slug=phone
       harmony-devices: |

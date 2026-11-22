@@ -399,8 +399,17 @@ fn city_page(
                 .title(destinations::title(city).format()),
         );
     });
+    // The fixed photo heights used on scrolling pages can consume all the room on
+    // smaller devices and CI desktops. Share what the form leaves with the map.
+    let city_photo = image(destinations::artwork(city))
+        // Bound the image's natural measurement (notably Android's ImageView).
+        // The growing frame still fills and crops to its allotted rectangle.
+        .aspect_ratio(16.0 / 9.0)
+        .fill()
+        .decorative()
+        .grow(Dimension::Both);
     column((
-        photo(city).id(day::id!(destination_photo)),
+        city_photo.id(day::id!(destination_photo)),
         column((
             row((
                 column((
