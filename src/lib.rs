@@ -319,7 +319,7 @@ fn planning_controls(draft: Draft) -> impl Piece {
             res::str::departure(),
             date_picker(draft.departure)
                 .compact()
-                .min(DayDate::today())
+                .min(DayDate::today_local())
                 .id(day::id!(departure_date)),
         ),
         labeled(
@@ -620,7 +620,7 @@ pub fn root() -> impl Piece {
     let path = Signal::new(Vec::<Page>::new());
     let draft = Draft {
         departure: Signal::new(DayDate::from_epoch_days(
-            DayDate::today().to_epoch_days() + 30,
+            DayDate::today_local().to_epoch_days() + 30,
         )),
         nights: Signal::new(4.0),
         travelers: Signal::new(2.0),
